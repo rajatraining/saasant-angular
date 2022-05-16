@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="formCtrl">
+   <ng-form >
+    Enter your Name : <input type="text" ng-model="user.userName" >
+    Enter Dept: <input type="text" ng-model="user.dept" >
+   <button ng-click="formSubmit()">Submit</button>
+   </ng-form>
+  
+   {{user}}
+
+   <script>
+    var app = angular.module('myApp', []);
+    
+    app.controller('formCtrl', function($scope) {
+       
+    });
+    </script>
+</body>
+</html>

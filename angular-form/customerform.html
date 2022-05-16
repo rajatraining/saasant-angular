@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 50%;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app>
+
+<h3>Customer Info form</h3>
+
+<div class="container">
+  <form >
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" ng-model="customer.firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" ng-model="customer.lastname" placeholder="Your last name..">
+
+    <label for="gender">Gender</label>
+    <input id="gender" type="radio" ng-model="customer.gender" value="M"> Male 
+    <input id="gender" type="radio" ng-model="customer.gender" value="F"> Female 
+
+    <br>
+
+    <label for="country">Country</label>
+    <select id="country" ng-model="customer.country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+
+    <label for="subject">Languages</label>
+    <input type="checkbox" ng-model="customer.lang.en" value="en"> English
+    <input type="checkbox" ng-model="customer.lang.tm" value="tm"> Tamil
+    <input type="checkbox"  ng-model="customer.lang.hn" value="hn"> Hindi
+   
+    <input type="submit" value="Submit">
+  </form>
+</div>
+{{customer}}
+</body>
+</html>

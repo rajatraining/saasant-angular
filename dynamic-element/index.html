@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="" ng-controller="myCtrl">
+<body>
+<button ng-click="AppendHtml()">
+  Append
+</button>
+<div id="calendarBox">
+</div>
+<script>
+function myCtrl($scope) {
+    $scope.AppendHtml = function() {
+     var myEl = angular.element( document.querySelector( '#calendarBox' ) );
+     myEl.append('Hi<br/>');     
+    }
+}
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</body>
+</html>

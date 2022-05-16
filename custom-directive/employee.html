@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Directive Sample</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body ng-app="mainApp" ng-controller="EmployeeController">
+    
+    <h1>Employee Details </h1>
+
+    <table>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Emp Name
+            </th>
+        </tr>
+<tr>
+    <emptr name="emp1"></emptr>
+    <emptr name="emp2"></emptr>
+    <emptr name="emp3"></emptr>
+    <emptr name="emp4"></emptr>
+    <emptr name="emp5"></emptr>
+    <emptr name="emp6"></emptr>
+</tr>
+       
+        
+       
+    </table>
+
+
+
+    <script>
+         var mainApp = angular.module("mainApp", []);
+
+         mainApp.directive ('emptr',function(){
+            var directive = {};
+            directive.restrict = 'E';
+            directive.template = "Employee: <b>{{emptr.name}}</b> , Emp Id : <b>{{emptr.id}}</b><br/>";
+
+            directive.scope = {
+                emptr : "=name"
+            }
+            
+
+            directive.compile = function(element, attributes) {
+               element.css("border", "1px solid #cccccc");
+               
+               var linkFunction = function($scope, element, attributes) {
+                  element.html("Employee: <b>"+$scope.emptr.name +"</b> , Emp Id: <b>"+$scope.emptr.id+"</b><br/>");
+                  element.css("background-color", "#ff00ff");
+               }
+               return linkFunction;
+            }
+
+            return directive;
+         });
+
+
+
+         mainApp.controller('EmployeeController', function($scope) {
+            $scope.emp1 = {};
+            $scope.emp1.name = "Raja Murugan";
+            $scope.emp1.id  = 1;
+
+            $scope.emp2 = {};
+            $scope.emp2.name = "Archana";
+            $scope.emp2.id  = 2;
+            
+            $scope.emp3 = {};
+            $scope.emp3.name = "Swathi";
+            $scope.emp3.id  = 3;
+
+           
+         });
+
+
+    </script>
+
+</body>
+</html>
