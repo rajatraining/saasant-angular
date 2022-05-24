@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+</head>
+<body ng-app="myValid">
+    <h2>Validation Example</h2>
+    <form ng-controller="validateCtrl" name="myForm" novalidate>
+     Enter the Age:   <input type="number" name="age" ng-model="age" required app-directive> {{myForm.age.$valid}}
+     <span style="color: red;" ng-show="myForm.age.$invalid">This is required</span>
+     <input ng-disabled="myForm.age.$invalid" type="submit">
+    </form>
+
+    <script>
+        var myApp = angular.module("myValid",[]);
+
+        myApp.directive('appDirective', function() {
+	return {
+		require: 'ngModel',
+		link: function(scope, element, attr, mCtrl) {
+			function myValidation(value) {
+				if (value >=18) {
+					mCtrl.$setValidity('charE', true);
+				} else {
+					mCtrl.$setValidity('charE', false);
+				}
+				return value;
+			}
+			mCtrl.$parsers.push(myValidation);
+		}
+	};
+});
+
+
+        myApp.controller("validateCtrl",function($scope){
+
+
+        })
+    </script>
+</body>
+</html>
