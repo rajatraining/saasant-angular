@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <style>
+        div{
+            margin: 1%;
+        }
+    </style>
+</head>
+<body ng-app="testApp" ng-controller="testController">
+    <h2>User Input Form</h2>
+   
+    <div>
+      Title :  <input type="text" ng-model="request.title">
+    </div>
+    <div>
+        FirstName :  <input type="text" ng-model="request.firstName">
+      </div>
+      <div>
+        lastName :  <input type="text" ng-model="request.lastName">
+      </div>
+      <div>
+        role :  <input type="text" ng-model="request.role">
+      </div>
+      <div>
+        email :  <input type="email" ng-model="request.email">
+      </div>
+      <div>
+        password :  <input type="password" ng-model="request.password">
+      </div>
+      <div>
+        confirmPassword :  <input type="password" ng-model="request.confirmPassword">
+      </div>
+
+
+
+    <button ng-click="postRequest()">Test Rest</button>
+
+    {{request}}
+
+    <div>Response -->   {{response}}</div>
+    <script src="script.js"></script>
+  </body>
+</html>
